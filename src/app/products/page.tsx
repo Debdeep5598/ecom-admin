@@ -1,3 +1,4 @@
+// Add "use client" at the top of the file
 'use client';
 
 import React, { useState } from 'react';
@@ -7,25 +8,23 @@ export default function ProductsPage() {
     name: '',
     description: '',
     price: '',
-    image: null
+    image: null,
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setProduct((prevState) => ({
       ...prevState,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
-    if (file) {
-      setProduct((prevState) => ({
-        ...prevState,
-        image: file
-      }));
-    }
+    setProduct((prevState) => ({
+      ...prevState,
+      image: file ? file : null, // Ensure the image is either a file or null
+    }));
   };
 
   return (
