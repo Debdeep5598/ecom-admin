@@ -1,12 +1,13 @@
+'use client';
+
 import React, { useState } from 'react';
 
 export default function ProductsPage() {
-  // Update the state to allow `image` to be either null or a File
   const [product, setProduct] = useState({
     name: '',
     description: '',
     price: '',
-    image: null as File | null, // Allowing `image` to be either `File` or `null`
+    image: null
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
